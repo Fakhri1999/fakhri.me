@@ -2,8 +2,9 @@ import { extendTheme } from '@chakra-ui/react';
 
 const theme = extendTheme({
   fonts: {
-    heading: "'Poppins', sans-serif",
-    body: "'Poppins', sans-serif",
+    heading: "'Tisa Sans Pro', sans-serif",
+    body: "'Tisa Sans Pro', sans-serif",
   },
 });
+
 export default theme;

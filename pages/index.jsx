@@ -10,7 +10,7 @@ export default function Home() {
       h='100vh'
       textAlign='center'
     >
-      <Box m='auto'>
+      <Box my='auto' w='100%' textAlign='center'>
         <TypeText />
       </Box>
     </Flex>
