@@ -10,11 +10,11 @@ import {
   HStack,
   Icon,
 } from '@chakra-ui/react';
+
 export default function Card({ data }) {
   return (
     <Flex
-      // mx='auto'
-      mx={3}
+      mx={{ base: 'auto', lg: '3' }}
       rounded='lg'
       shadow='md'
       bg='white'
@@ -25,7 +25,6 @@ export default function Card({ data }) {
       <Image
         roundedTop='lg'
         w='full'
-        // h='auto'
         h={64}
         fit='cover'
         src={data.image}

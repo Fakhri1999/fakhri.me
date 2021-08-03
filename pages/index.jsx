@@ -13,6 +13,7 @@ import AboutMe from '../components/aboutMe';
 import Projects from '../components/projects';
 import { TABS_MENU, PARTICLE } from '../utils/constant';
 import Particles from 'react-tsparticles';
+
 export default function Home() {
   return (
     <>
@@ -22,7 +23,6 @@ export default function Home() {
         style={{
           position: 'fixed',
           zIndex: '-10',
-          backgroundColor: '#4A5568',
         }}
       />
       <Flex
@@ -93,7 +93,6 @@ export default function Home() {
             </TabPanel>
           </TabPanels>
         </Tabs>
-        {/* </Flex> */}
       </Flex>
     </>
   );

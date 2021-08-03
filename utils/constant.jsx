@@ -126,7 +126,7 @@ export const PROJECTS = [
   {
     title: 'Chroma Minecraft Web',
     description: `This is a web for "Chroma Minecraft Game Server". I'm responsible
-for creating the web while the Backend is created by my friend. I'm also responsible to maintain the Game Server.`,
+  for creating the web while the Backend is created by my friend. I'm also responsible to maintain the Game Server.`,
     image: '/images/chroma-minecraft-web.png',
     techs: ['ReactJS', 'NextJS', 'ChakraUI'],
     links: [
