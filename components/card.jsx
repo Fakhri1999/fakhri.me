@@ -18,7 +18,7 @@ export default function Card({ data }) {
       rounded='lg'
       shadow='md'
       bg='white'
-      maxW='lg'
+      maxW='md'
       flexDir='column'
       mt={5}
     >
@@ -42,6 +42,11 @@ export default function Card({ data }) {
           >
             {data.title}
           </Text>
+          <HStack>
+            <Text fontSize={{ base: 'sm', md: 'md' }}>
+              {data.person} {data.time}
+            </Text>
+          </HStack>
           <Flex verticalAlign='middle'>
             <HStack spacing={2}>
               {data.links.map((link, i) => (

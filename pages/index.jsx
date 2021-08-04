@@ -73,7 +73,7 @@ export default function Home() {
                 <Flex
                   flexDir='column'
                   justifyContent='center'
-                  fontSize={{ base: 'sm', md: 'md' }}
+                  fontSize={{ base: 'xs', sm: 'sm', md: 'md' }}
                 >
                   <Icon as={tab.icon} mx='auto' w='full'></Icon>
                   <Text>{tab.text}</Text>

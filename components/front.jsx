@@ -26,10 +26,10 @@ export default function Front() {
           borderRadius='full'
           mx='auto'
         ></Image>
-        <Text fontWeight='bold' fontSize='4xl' mt={4}>
+        <Text fontWeight='bold' fontSize={{ base: '2xl', lg: '4xl' }} mt={4}>
           M Fakhri Imaduddin
         </Text>
-        <Text fontSize='xl' fontWeight='medium'>
+        <Text fontSize={{ base: 'md', lg: 'xl' }} fontWeight='medium'>
           Web Developer
         </Text>
         <Flex justifyContent='center' mt={1}>
