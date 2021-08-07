@@ -8,13 +8,25 @@ import {
   TabPanel,
   Icon,
 } from '@chakra-ui/react';
+import { useState } from 'react';
+import Particles from 'react-tsparticles';
+
 import Front from '../components/front';
 import AboutMe from '../components/aboutMe';
 import Projects from '../components/projects';
 import { TABS_MENU, PARTICLE } from '../utils/constant';
-import Particles from 'react-tsparticles';
+import * as ga from '../lib/ga';
 
 export default function Home() {
+  const changeTab = (tabName) => {
+    ga.event({
+      action: tabName,
+      params: {
+        category: 'engagement',
+      },
+    });
+  };
+
   return (
     <>
       <Particles
@@ -37,7 +49,11 @@ export default function Home() {
         py='auto'
         borderRadius='md'
       >
-        <Tabs isFitted variant='unstyled'>
+        <Tabs
+          isFitted
+          variant='unstyled'
+          onChange={(index) => changeTab(TABS_MENU[index].event)}
+        >
           <TabList
             position='fixed'
             bottom='5'
@@ -69,6 +85,7 @@ export default function Home() {
                 borderRadius='2xl'
                 mx={{ base: '0', md: '1' }}
                 key={`tabs-${i}`}
+                // onClick={() => changeTab(tab.event)}
               >
                 <Flex
                   flexDir='column'

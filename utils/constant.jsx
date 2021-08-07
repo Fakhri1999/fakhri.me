@@ -46,14 +46,17 @@ export const TABS_MENU = [
   {
     icon: FaHome,
     text: 'Home',
+    event: 'tab_home',
   },
   {
     icon: FaUser,
     text: 'About Me',
+    event: 'tab_about_me',
   },
   {
     icon: FaBriefcase,
     text: 'Projects',
+    event: 'tab_projects',
   },
 ];
 
