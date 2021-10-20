@@ -8,7 +8,6 @@ import {
   TabPanel,
   Icon,
 } from '@chakra-ui/react';
-import { useState } from 'react';
 import Particles from 'react-tsparticles';
 
 import Front from '../components/front';
@@ -85,7 +84,6 @@ export default function Home() {
                 borderRadius='2xl'
                 mx={{ base: '0', md: '1' }}
                 key={`tabs-${i}`}
-                // onClick={() => changeTab(tab.event)}
               >
                 <Flex
                   flexDir='column'

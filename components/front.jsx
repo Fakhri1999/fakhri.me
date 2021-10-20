@@ -30,7 +30,7 @@ export default function Front() {
           M Fakhri Imaduddin
         </Text>
         <Text fontSize={{ base: 'md', lg: 'xl' }} fontWeight='medium'>
-          Web Developer
+          Full Stack Engineer
         </Text>
         <Flex justifyContent='center' mt={1}>
           {ICONS.map((icon, i) => (
