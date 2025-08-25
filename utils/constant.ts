@@ -10,6 +10,8 @@ import {
   FaLine,
   FaSteamSquare,
 } from 'react-icons/fa';
+import { IconType } from 'react-icons';
+import type { ISourceOptions } from '@tsparticles/engine';
 
 export const LIST_URL = {
   GITHUB: 'https://github.com/fakhri1999/',
@@ -17,9 +19,14 @@ export const LIST_URL = {
   DISCORD: 'https://discord.com/users/331304445977559050/',
   LINKEDIN: 'https://www.linkedin.com/in/fakhri19/',
   STEAM: 'https://steamcommunity.com/id/fakhri19/',
+} as const;
+
+type IconLink = {
+  url: string;
+  icon: IconType;
 };
 
-export const ICONS = [
+export const ICONS: IconLink[] = [
   {
     url: LIST_URL.GITHUB,
     icon: FaGithubSquare,
@@ -42,7 +49,13 @@ export const ICONS = [
   },
 ];
 
-export const TABS_MENU = [
+type TabMenu = {
+  icon: IconType;
+  text: string;
+  event: string;
+};
+
+export const TABS_MENU: TabMenu[] = [
   {
     icon: FaHome,
     text: 'Home',
@@ -60,20 +73,17 @@ export const TABS_MENU = [
   },
 ];
 
-export const PARTICLE = {
-  fps_limit: 60,
+export const PARTICLE: ISourceOptions = {
+  fpsLimit: 60,
   interactivity: {
-    detectsOn: 'window',
     events: {
       onHover: { enable: true, mode: 'grab' },
-      resize: true,
+      resize: { enable: true },
     },
     modes: {
       grab: {
         distance: 150,
         links: {
-          blink: false,
-          consent: false,
           opacity: 1,
         },
       },
@@ -83,11 +93,6 @@ export const PARTICLE = {
     color: {
       value: '#F5F5F5',
     },
-    image: '',
-    position: '',
-    repeat: '',
-    size: '',
-    opacity: 1,
   },
   particles: {
     color: { value: '#ADADAD' },
@@ -99,23 +104,33 @@ export const PARTICLE = {
       width: 1,
     },
     move: {
-      bounce: false,
-      direction: 'none',
       enable: true,
-      outMode: 'out',
+      outModes: {
+        default: 'out',
+      },
       random: false,
       speed: 1.5,
       straight: false,
     },
-    number: { density: { enable: true, area: 800 }, value: 100 },
+    number: { density: { enable: true }, value: 100 },
     opacity: { value: 0.5 },
     shape: { type: 'circle' },
-    size: { random: true, value: 5 },
+    size: { value: { min: 1, max: 5 } },
   },
   detectRetina: true,
+} as const;
+
+type Project = {
+  title: string;
+  description: string;
+  image: string;
+  person: string;
+  time: string;
+  techs: string[];
+  links: IconLink[];
 };
 
-export const PROJECTS = [
+export const PROJECTS: Project[] = [
   {
     title: 'Fakhri.me',
     description: `This is my current personal web like you see now.`,

@@ -2,16 +2,9 @@ import {
   Image,
   Link,
   Text,
-  SimpleGrid,
-  Grid,
-  GridItem,
-  HStack,
-  Tag,
   Flex,
-  Divider,
   Icon,
 } from '@chakra-ui/react';
-import { FaGithub } from 'react-icons/fa';
 import { ICONS } from '../utils/constant';
 
 export default function Front() {
@@ -38,9 +31,8 @@ export default function Front() {
               href={icon.url}
               fontSize='2xl'
               target='_blank'
-              key={icon.key}
-              mx={2}
               key={`social-media-front-${i}`}
+              mx={2}
               _hover={{ color: 'blue.500' }}
               _focus={{ border: 'none' }}
             >

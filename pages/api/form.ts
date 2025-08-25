@@ -1,8 +1,19 @@
 import moment from 'moment';
+import type { NextApiRequest, NextApiResponse } from 'next'
 
-const handler = async (req, res) => {
-  if (req.method != 'POST') {
-    return reFs.status(404).json({ message: 'Not found' });
+type Data = {
+  message: string
+}
+
+type FormData = {
+  name: string
+  contact: string
+  details: string
+}
+
+const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
+  if (req.method !== 'POST') {
+    return res.status(404).json({ message: 'Not found' });
   }
 
   if (!process.env.DISCORD_WEBHOOK_URL) {
@@ -13,7 +24,7 @@ const handler = async (req, res) => {
     });
   }
 
-  const { name, contact, details } = req.body;
+  const { name, contact, details }: FormData = req.body;
   const time = moment().utcOffset(7).format('DD/MM/YYYY, HH:mm:ss');
   const apiData = {
     username: 'Website Form',

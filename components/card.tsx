@@ -1,5 +1,4 @@
 import {
-  chakra,
   Box,
   Image,
   Flex,
@@ -10,8 +9,26 @@ import {
   HStack,
   Icon,
 } from '@chakra-ui/react';
+import { IconType } from 'react-icons';
 
-export default function Card({ data }) {
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  person: string;
+  time: string;
+  techs: string[];
+  links: {
+    url: string;
+    icon: IconType;
+  }[];
+}
+
+interface CardProps {
+  data: Project;
+}
+
+export default function Card({ data }: CardProps) {
   return (
     <Flex
       mx={{ base: 'auto', lg: '3' }}

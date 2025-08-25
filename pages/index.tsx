@@ -8,16 +8,16 @@ import {
   TabPanel,
   Icon,
 } from '@chakra-ui/react';
-import Particles from 'react-tsparticles';
 
 import Front from '../components/front';
 import AboutMe from '../components/aboutMe';
 import Projects from '../components/projects';
+import { Particles } from '../components/Particles';
 import { TABS_MENU, PARTICLE } from '../utils/constant';
 import * as ga from '../lib/ga';
 
 export default function Home() {
-  const changeTab = (tabName) => {
+  const changeTab = (tabName: string) => {
     ga.event({
       action: tabName,
       params: {
@@ -28,14 +28,15 @@ export default function Home() {
 
   return (
     <>
-      <Particles
+      <Particles />
+      {/* <Particles
         id='tsparticles'
         options={PARTICLE}
         style={{
           position: 'fixed',
           zIndex: '-10',
         }}
-      />
+      /> */}
       <Flex
         justifyContent='center'
         verticalAlign='middle'
@@ -80,10 +81,9 @@ export default function Home() {
                   borderRadius: '2xl',
                 }}
                 _focus={{ border: 'none' }}
-                key={i}
+                key={`tabs-${i}`}
                 borderRadius='2xl'
                 mx={{ base: '0', md: '1' }}
-                key={`tabs-${i}`}
               >
                 <Flex
                   flexDir='column'

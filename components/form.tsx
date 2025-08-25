@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, ChangeEvent, FormEvent } from 'react';
 import {
   FormControl,
   FormLabel,
@@ -8,41 +8,54 @@ import {
   Button,
   Alert,
   AlertIcon,
-  AlertTitle,
   AlertDescription,
 } from '@chakra-ui/react';
-import axios from 'axios';
+
+interface FormData {
+  name?: string;
+  contact?: string;
+  details?: string;
+}
 
 export default function Form() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState<FormData>({});
   const [isAlertShown, setIsAlertShown] = useState(false);
   const [alertText, setAlertText] = useState('');
-  const [alertStatus, setAlertStatus] = useState('success');
+  const [alertStatus, setAlertStatus] = useState<'success' | 'error'>('success');
   const [isLoading, setIsLoading] = useState(false);
-  const formRef = useRef();
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setData((oldValue) => ({ ...oldValue, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setIsAlertShown(false);
     setIsLoading(true);
     try {
-      const result = await axios({
-        url: '/api/form',
+      const response = await fetch('/api/form', {
         method: 'POST',
-        data,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
       });
+      
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.message);
+      }
+      
       setAlertStatus('success');
-      setAlertText(result.data.message);
-      formRef.current.reset();
+      setAlertText(result.message);
+      formRef.current?.reset();
     } catch (error) {
       setAlertStatus('error');
-      setAlertText(error.response.data.message);
+      setAlertText(error instanceof Error ? error.message : 'An error occurred');
     }
     setIsLoading(false);
     setIsAlertShown(true);

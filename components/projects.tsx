@@ -1,15 +1,6 @@
 import {
   Flex,
-  chakra,
-  Box,
-  Image,
-  useColorModeValue,
-  Link,
   Text,
-  Tag,
-  HStack,
-  Icon,
-  SimpleGrid,
 } from '@chakra-ui/react';
 import Card from './card';
 import { PROJECTS } from '../utils/constant';
