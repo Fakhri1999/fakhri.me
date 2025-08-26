@@ -2,7 +2,7 @@ import {
   Flex,
   Text,
 } from '@chakra-ui/react';
-import Card from './card';
+import Card from './Card';
 import { PROJECTS } from '../utils/constant';
 
 export default function Projects() {

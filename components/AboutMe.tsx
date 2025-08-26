@@ -10,7 +10,7 @@ import {
   Button,
 } from '@chakra-ui/react';
 import { useDisclosure } from '@chakra-ui/react';
-import Form from './form';
+import Form from './Form';
 
 export default function AboutMe() {
   const { isOpen, onOpen, onClose } = useDisclosure();

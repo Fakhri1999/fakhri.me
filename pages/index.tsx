@@ -9,9 +9,9 @@ import {
   Icon,
 } from '@chakra-ui/react';
 
-import Front from '../components/front';
-import AboutMe from '../components/aboutMe';
-import Projects from '../components/projects';
+import Front from '../components/Front';
+import AboutMe from '../components/AboutMe';
+import Projects from '../components/Projects';
 import { Particles } from '../components/Particles';
 import { TABS_MENU, PARTICLE } from '../utils/constant';
 import * as ga from '../lib/ga';
