@@ -29,14 +29,6 @@ export default function Home() {
   return (
     <>
       <Particles />
-      {/* <Particles
-        id='tsparticles'
-        options={PARTICLE}
-        style={{
-          position: 'fixed',
-          zIndex: '-10',
-        }}
-      /> */}
       <Flex
         justifyContent='center'
         verticalAlign='middle'
@@ -67,6 +59,7 @@ export default function Home() {
             py={3}
             px={{ base: 3, md: 2 }}
             justifyContent='center'
+            zIndex='docked'
           >
             {TABS_MENU.map((tab, i) => (
               <Tab

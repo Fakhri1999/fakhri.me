@@ -120,21 +120,31 @@ export const PARTICLE: ISourceOptions = {
   detectRetina: true,
 } as const;
 
-type Project = {
+export type Project = {
   title: string;
   description: string;
   image: string;
+  images?: string[];
   person: string;
   time: string;
   techs: string[];
-  links: IconLink[];
+  links: ProjectLink[];
 };
+
+type ProjectLink = {
+  url: string;
+  icon: IconType;
+  type: LinkType;
+};
+
+export type LinkType = 'DEMO' | 'GITHUB';
 
 export const PROJECTS: Project[] = [
   {
     title: 'Fakhri.me',
     description: `This is my current personal web like you see now.`,
     image: '/images/fakhri.me.png',
+    images: ['/images/fakhri.me.png'],
     person: 'Personal',
     time: '[Mid 2021 - Present]',
     techs: ['ReactJS', 'NextJS', 'ChakraUI'],
@@ -142,10 +152,12 @@ export const PROJECTS: Project[] = [
       {
         url: 'https://fakhri.me',
         icon: FaGlobe,
+        type: 'DEMO',
       },
       {
         url: 'https://github.com/fakhri1999/fakhri.me',
         icon: FaGithubSquare,
+        type: 'GITHUB',
       },
     ],
   },
@@ -154,6 +166,10 @@ export const PROJECTS: Project[] = [
     description: `This is a web for "Chroma Minecraft Game Server". I'm responsible
   for creating the web while the Backend is created by my friend. I'm also responsible to maintain the Game Server.`,
     image: '/images/chroma-minecraft-web.png',
+    images: [
+      '/images/chroma-minecraft-web.png',
+      '/images/chroma-minecraft-web.png',
+    ],
     person: 'Team (2)',
     time: '[Late 2020 - Present]',
     techs: ['ReactJS', 'NextJS', 'ChakraUI'],
@@ -161,10 +177,12 @@ export const PROJECTS: Project[] = [
       {
         url: 'https://mc.chroma-gaming.xyz',
         icon: FaGlobe,
+        type: 'DEMO',
       },
       {
         url: 'https://github.com/ChromaMinecraft/chroma-minecraft-frontend',
         icon: FaGithubSquare,
+        type: 'GITHUB',
       },
     ],
   },
@@ -179,10 +197,12 @@ export const PROJECTS: Project[] = [
       {
         url: 'https://line.me/ti/p/~@810cmuce',
         icon: FaLine,
+        type: 'DEMO',
       },
       {
         url: 'https://github.com/Fakhri1999/line-bot-server',
         icon: FaGithubSquare,
+        type: 'GITHUB',
       },
     ],
   },
@@ -197,10 +217,12 @@ export const PROJECTS: Project[] = [
       {
         url: 'https://onvot.fakhri.me/',
         icon: FaGlobe,
+        type: 'DEMO',
       },
       {
         url: 'https://github.com/Fakhri1999/OnlineVote',
         icon: FaGithubSquare,
+        type: 'GITHUB',
       },
     ],
   },

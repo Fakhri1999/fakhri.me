@@ -1,16 +1,14 @@
-import {
-  Flex,
-  Text,
-} from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
 import Card from './Card';
 import { PROJECTS } from '../utils/constant';
 
 export default function Projects() {
   return (
-    <>
+    <Flex flexDir='column'>
       <Text textAlign='center' fontSize='3xl' fontWeight='bold'>
         Projects
       </Text>
+      <Text textAlign='center'>Click each card to see more details</Text>
       <Flex
         w='full'
         justifyContent='center'
@@ -24,6 +22,6 @@ export default function Projects() {
           <Card data={project} key={`card-${project.title}-${i}`} />
         ))}
       </Flex>
-    </>
+    </Flex>
   );
 }
